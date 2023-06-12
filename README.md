@@ -1,0 +1,1 @@
+Petit script pour détruire un scammer.
