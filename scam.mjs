@@ -357,6 +357,10 @@ const USER_AGENTS = [
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43",
 ];
 
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 function pickFromList(l) {
   const random = Math.floor(Math.random() * l.length);
   return l[random];
@@ -561,15 +565,25 @@ async function logResult(res) {
 async function runWith(extraHeaders, infos, card) {
   const jar = new CookieJar();
   logResult(await index(extraHeaders, jar));
+  await sleep(pickFromRange(1000, 4000));
   logResult(await explain(extraHeaders, jar));
+  await sleep(pickFromRange(1000, 4000));
   logResult(await loader(extraHeaders, jar, "billing"));
+  await sleep(pickFromRange(1000, 4000));
   logResult(await billing(extraHeaders, jar));
+  await sleep(pickFromRange(1000, 4000));
   // logResult(await cookieConsent(extraHeaders, jar));
+  await sleep(pickFromRange(3000, 6000));
   logResult(await process2(extraHeaders, jar, infos));
+  await sleep(pickFromRange(1000, 4000));
   logResult(await loader(extraHeaders, jar, "card"));
+  await sleep(pickFromRange(1000, 4000));
   logResult(await payment(extraHeaders, jar));
+  await sleep(pickFromRange(1000, 4000));
   logResult(await process3(extraHeaders, jar, card));
+  await sleep(pickFromRange(1000, 4000));
   logResult(await loader(extraHeaders, jar, "finished"));
+  await sleep(pickFromRange(1000, 4000));
 }
 
 async function run() {
@@ -605,6 +619,9 @@ async function runLoop(bucketSize, total) {
   let bucket = [];
   let done = 0;
   for (let i = 0; i < total; i++) {
+    if (i != 0) {
+      await sleep(pickFromRange(1000, 3000));
+    }
     console.log(`Start: ${i} (${i-done})`);
     bucket.push(run());
     if (bucket.length >= bucketSize) {
