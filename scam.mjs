@@ -299,6 +299,63 @@ const VILLES = [
   "Montpellier",
   "Strasbourg",
 ];
+const USER_AGENTS = [
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36",
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36",
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/113.0",
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+  "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36",
+  "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0",
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/113.0",
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.4 Safari/605.1.15",
+  "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0",
+  "Mozilla/5.0 (Windows NT 10.0; rv:113.0) Gecko/20100101 Firefox/113.0",
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42",
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/112.0",
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/114.0",
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5 Safari/605.1.15",
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+  "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.57",
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.50",
+  "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0",
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 OPR/98.0.0.0",
+  "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.37",
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.3 Safari/605.1.15",
+  "Mozilla/5.0 (Windows NT 10.0; rv:102.0) Gecko/20100101 Firefox/102.0",
+  "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0",
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0",
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+  "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36",
+  "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/112.0",
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/112.0",
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.4.1 Safari/605.1.15",
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.35",
+  "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/114.0",
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.6.1 Safari/605.1.15",
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36",
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.41",
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36",
+  "Mozilla/5.0 (X11; CrOS x86_64 14541.0.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36",
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36",
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36",
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 OPR/99.0.0.0",
+  "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:109.0) Gecko/20100101 Firefox/113.0",
+  "Mozilla/5.0 (Windows NT 10.0; rv:112.0) Gecko/20100101 Firefox/112.0",
+  "Mozilla/5.0 (Windows NT 10.0; rv:114.0) Gecko/20100101 Firefox/114.0",
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 YaBrowser/23.3.4.603 Yowser/2.5 Safari/537.36",
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.2 Safari/605.1.15",
+  "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/112.0",
+  "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0",
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Safari/605.1.15",
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43",
+];
 
 function pickFromList(l) {
   const random = Math.floor(Math.random() * l.length);
@@ -356,18 +413,19 @@ function encodeForm(form) {
   return entries.join("&");
 }
 
-async function index(jar) {
+async function index(extraHeaders, jar) {
   return await fetch(jar, "https://www.chrinopost-erreurlivraison.com/", {
     credentials: "include",
     headers: {
       ...HEADERS,
+      ...extraHeaders,
     },
     method: "GET",
     mode: "cors",
   });
 }
 
-async function explain(jar) {
+async function explain(extraHeaders, jar) {
   return await fetch(
     jar,
     "https://www.chrinopost-erreurlivraison.com/client/explain.php",
@@ -375,6 +433,7 @@ async function explain(jar) {
       // credentials: "omit",
       headers: {
         ...HEADERS,
+        ...extraHeaders,
         "Sec-Fetch-Site": "none",
       },
       method: "GET",
@@ -383,13 +442,14 @@ async function explain(jar) {
   );
 }
 
-async function loader(jar, goto) {
+async function loader(extraHeaders, jar, goto) {
   return await fetch(
     jar,
     "https://www.chrinopost-erreurlivraison.com/client/loader.php?goto=" + goto,
     {
       headers: {
         ...HEADERS,
+        ...extraHeaders,
       },
       referrer: "https://www.chrinopost-erreurlivraison.com/client/explain.php",
       method: "GET",
@@ -398,13 +458,14 @@ async function loader(jar, goto) {
   );
 }
 
-async function billing(jar) {
+async function billing(extraHeaders, jar) {
   return await fetch(
     jar,
     "https://www.chrinopost-erreurlivraison.com/client/billing.php?",
     {
       headers: {
         ...HEADERS,
+        ...extraHeaders,
       },
       method: "GET",
       mode: "cors",
@@ -412,13 +473,14 @@ async function billing(jar) {
   );
 }
 
-async function cookieConsent(jar) {
+async function cookieConsent(extraHeaders, jar) {
   return await fetch(
     jar,
     "https://consent.cookiebot.com/logconsent.ashx?action=decline&nocache=1686553543714&cbid=07728dca-296d-43fc-9a3b-107a450004d2&cbt=leveloptin&method=strict&hasdata=true&usercountry=FR&referer=https%3A%2F%2Fwww.chrinopost-erreurlivraison.com",
     {
       headers: {
         ...HEADERS,
+        ...extraHeaders,
         Accept: "*/*",
         "Sec-Fetch-Dest": "script",
         "Sec-Fetch-Mode": "no-cors",
@@ -431,13 +493,14 @@ async function cookieConsent(jar) {
   );
 }
 
-async function process2(jar, data) {
+async function process2(extraHeaders, jar, data) {
   return await fetch(
     jar,
     "https://www.chrinopost-erreurlivraison.com/client/actions/process002.php",
     {
       headers: {
         ...HEADERS,
+        ...extraHeaders,
         "Content-Type": "application/x-www-form-urlencoded",
       },
       referrer:
@@ -449,13 +512,14 @@ async function process2(jar, data) {
   );
 }
 
-async function payment(jar) {
+async function payment(extraHeaders, jar) {
   return await fetch(
     jar,
     "https://www.chrinopost-erreurlivraison.com/client/paiement.php?",
     {
       headers: {
         ...HEADERS,
+        ...extraHeaders,
       },
       method: "GET",
       mode: "cors",
@@ -463,7 +527,7 @@ async function payment(jar) {
   );
 }
 
-async function process3(jar, data) {
+async function process3(extraHeaders, jar, data) {
   return await fetch(
     jar,
     "https://www.chrinopost-erreurlivraison.com/client/actions/process003.php",
@@ -471,6 +535,7 @@ async function process3(jar, data) {
       credentials: "include",
       headers: {
         ...HEADERS,
+        ...extraHeaders,
         "Content-Type": "application/x-www-form-urlencoded",
       },
       referrer:
@@ -488,25 +553,30 @@ async function logResult(res) {
   if (text.length < 50) {
     showText = text;
   }
-  console.log(res.status, text.length, showText);
+  if (showText != "<Too Long>" || res.status != 200) {
+    console.log(res.status, text.length, showText);
+  }
 }
 
-async function runWith(infos, card) {
+async function runWith(extraHeaders, infos, card) {
   const jar = new CookieJar();
-  logResult(await index(jar));
-  logResult(await explain(jar));
-  logResult(await loader(jar, "billing"));
-  logResult(await billing(jar));
-  // logResult(await cookieConsent(jar));
-  logResult(await process2(jar, infos));
-  logResult(await loader(jar, "card"));
-  logResult(await payment(jar));
-  logResult(await process3(jar, card));
-  logResult(await loader(jar, "finished"));
+  logResult(await index(extraHeaders, jar));
+  logResult(await explain(extraHeaders, jar));
+  logResult(await loader(extraHeaders, jar, "billing"));
+  logResult(await billing(extraHeaders, jar));
+  // logResult(await cookieConsent(extraHeaders, jar));
+  logResult(await process2(extraHeaders, jar, infos));
+  logResult(await loader(extraHeaders, jar, "card"));
+  logResult(await payment(extraHeaders, jar));
+  logResult(await process3(extraHeaders, jar, card));
+  logResult(await loader(extraHeaders, jar, "finished"));
 }
 
 async function run() {
   await runWith(
+    {
+      "User-Agent": pickFromList(USER_AGENTS),
+    },
     {
       lname: pickFromList(NOMS),
       fname: pickFromList(PRENOMS),
@@ -533,10 +603,14 @@ async function run() {
 
 async function runLoop(bucketSize, total) {
   let bucket = [];
+  let done = 0;
   for (let i = 0; i < total; i++) {
+    console.log(`Start: ${i} (${i-done})`);
     bucket.push(run());
     if (bucket.length >= bucketSize) {
       await bucket.shift();
+      done += 1;
+      console.log(`Done: ${done}`);
     }
   }
 }
