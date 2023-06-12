@@ -586,7 +586,7 @@ async function runWith(extraHeaders, infos, card) {
   await sleep(pickFromRange(1000, 4000));
 }
 
-async function run() {
+async function run(i) {
   await runWith(
     {
       "User-Agent": pickFromList(USER_AGENTS),
@@ -613,6 +613,7 @@ async function run() {
       continue: "",
     }
   );
+  console.log(`Done: ${i}`);
 }
 
 async function runLoop(bucketSize, total) {
@@ -623,13 +624,12 @@ async function runLoop(bucketSize, total) {
       await sleep(pickFromRange(1000, 3000));
     }
     console.log(`Start: ${i} (${i-done})`);
-    bucket.push(run());
+    bucket.push(run(i));
     if (bucket.length >= bucketSize) {
       await bucket.shift();
       done += 1;
-      console.log(`Done: ${done}`);
     }
   }
 }
 
-runLoop(20, 10000);
+runLoop(10, 10000);
