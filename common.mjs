@@ -1,6 +1,4 @@
-import { fetch, CookieJar } from "node-fetch-cookies";
-
-const HEADERS = {
+export const HEADERS = {
   "User-Agent":
     "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0",
   Accept:
@@ -15,7 +13,7 @@ const HEADERS = {
   "Cache-Control": "no-cache",
 };
 
-const PRENOMS = [
+export const PRENOMS = [
   "Aaron",
   "Abel",
   "Achille",
@@ -148,7 +146,7 @@ const PRENOMS = [
   "Youssef",
 ];
 
-const NOMS = [
+export const NOMS = [
   "Auriol",
   "Bernard",
   "Castiel",
@@ -178,8 +176,8 @@ const NOMS = [
   "Uriel",
   "Winchester",
 ];
-const TYPE_RUES = ["impasse", "rue", "rue", "rue", "avenue", "chemin"];
-const RUES = [
+export const TYPE_RUES = ["impasse", "rue", "rue", "rue", "avenue", "chemin"];
+export const RUES = [
   "Charles de Gaulle",
   "Louis Pasteur",
   "Victor Hugo",
@@ -289,7 +287,7 @@ const RUES = [
   "Daniel Sorano",
   "Beau Site",
 ];
-const VILLES = [
+export const VILLES = [
   "Paris",
   "Marseille",
   "Lyon",
@@ -299,7 +297,7 @@ const VILLES = [
   "Montpellier",
   "Strasbourg",
 ];
-const USER_AGENTS = [
+export const USER_AGENTS = [
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36",
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36",
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/113.0",
@@ -357,19 +355,20 @@ const USER_AGENTS = [
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43",
 ];
 
-function sleep(ms) {
+
+export function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-function pickFromList(l) {
+export function pickFromList(l) {
   const random = Math.floor(Math.random() * l.length);
   return l[random];
 }
-function pickFromRange(min, max) {
+export function pickFromRange(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-function pickDigits(length) {
+export function pickDigits(length) {
   let digits = "";
   for (let i = 0; i < length; i++) {
     digits += ((Math.random() * 100) | 0) % 10;
@@ -377,7 +376,7 @@ function pickDigits(length) {
   return digits;
 }
 
-function computeCCLugn(digits) {
+export function computeCCLugn(digits) {
   let sum = 0;
   for (let i = 0; i < digits.length; i++) {
     let digitValue = parseInt(digits.charAt(i));
@@ -394,7 +393,7 @@ function computeCCLugn(digits) {
   // console.log(sum);
   return (sum * 9) % 10;
 }
-function pickCCNumber() {
+export function pickCCNumber() {
   let digits = "";
   if (Math.random() < 0.4) {
     // Visa
@@ -409,227 +408,10 @@ function pickCCNumber() {
   return digits;
 }
 
-function encodeForm(form) {
+export function encodeForm(form) {
   let entries = [];
   for (const [key, value] of Object.entries(form)) {
     entries.push(`${encodeURI(key)}=${encodeURI(value)}`);
   }
   return entries.join("&");
 }
-
-async function index(extraHeaders, jar) {
-  return await fetch(jar, "https://www.chrinopost-erreurlivraison.com/", {
-    credentials: "include",
-    headers: {
-      ...HEADERS,
-      ...extraHeaders,
-    },
-    method: "GET",
-    mode: "cors",
-  });
-}
-
-async function explain(extraHeaders, jar) {
-  return await fetch(
-    jar,
-    "https://www.chrinopost-erreurlivraison.com/client/explain.php",
-    {
-      // credentials: "omit",
-      headers: {
-        ...HEADERS,
-        ...extraHeaders,
-        "Sec-Fetch-Site": "none",
-      },
-      method: "GET",
-      mode: "cors",
-    }
-  );
-}
-
-async function loader(extraHeaders, jar, goto) {
-  return await fetch(
-    jar,
-    "https://www.chrinopost-erreurlivraison.com/client/loader.php?goto=" + goto,
-    {
-      headers: {
-        ...HEADERS,
-        ...extraHeaders,
-      },
-      referrer: "https://www.chrinopost-erreurlivraison.com/client/explain.php",
-      method: "GET",
-      mode: "cors",
-    }
-  );
-}
-
-async function billing(extraHeaders, jar) {
-  return await fetch(
-    jar,
-    "https://www.chrinopost-erreurlivraison.com/client/billing.php?",
-    {
-      headers: {
-        ...HEADERS,
-        ...extraHeaders,
-      },
-      method: "GET",
-      mode: "cors",
-    }
-  );
-}
-
-async function cookieConsent(extraHeaders, jar) {
-  return await fetch(
-    jar,
-    "https://consent.cookiebot.com/logconsent.ashx?action=decline&nocache=1686553543714&cbid=07728dca-296d-43fc-9a3b-107a450004d2&cbt=leveloptin&method=strict&hasdata=true&usercountry=FR&referer=https%3A%2F%2Fwww.chrinopost-erreurlivraison.com",
-    {
-      headers: {
-        ...HEADERS,
-        ...extraHeaders,
-        Accept: "*/*",
-        "Sec-Fetch-Dest": "script",
-        "Sec-Fetch-Mode": "no-cors",
-        "Sec-Fetch-Site": "cross-site",
-      },
-      referrer: "https://www.chrinopost-erreurlivraison.com/",
-      method: "GET",
-      mode: "cors",
-    }
-  );
-}
-
-async function process2(extraHeaders, jar, data) {
-  return await fetch(
-    jar,
-    "https://www.chrinopost-erreurlivraison.com/client/actions/process002.php",
-    {
-      headers: {
-        ...HEADERS,
-        ...extraHeaders,
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      referrer:
-        "https://www.chrinopost-erreurlivraison.com/client/billing.php?error=dob",
-      body: encodeForm(data),
-      method: "POST",
-      mode: "cors",
-    }
-  );
-}
-
-async function payment(extraHeaders, jar) {
-  return await fetch(
-    jar,
-    "https://www.chrinopost-erreurlivraison.com/client/paiement.php?",
-    {
-      headers: {
-        ...HEADERS,
-        ...extraHeaders,
-      },
-      method: "GET",
-      mode: "cors",
-    }
-  );
-}
-
-async function process3(extraHeaders, jar, data) {
-  return await fetch(
-    jar,
-    "https://www.chrinopost-erreurlivraison.com/client/actions/process003.php",
-    {
-      credentials: "include",
-      headers: {
-        ...HEADERS,
-        ...extraHeaders,
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      referrer:
-        "https://www.chrinopost-erreurlivraison.com/client/paiement.php?",
-      body: encodeForm(data),
-      method: "POST",
-      mode: "cors",
-    }
-  );
-}
-
-async function logResult(res) {
-  let text = await res.text();
-  let showText = "<Too Long>";
-  if (text.length < 50) {
-    showText = text;
-  }
-  if (showText != "<Too Long>" || res.status != 200) {
-    console.log(res.status, text.length, showText);
-  }
-}
-
-async function runWith(extraHeaders, infos, card) {
-  const jar = new CookieJar();
-  logResult(await index(extraHeaders, jar));
-  await sleep(pickFromRange(1000, 4000));
-  logResult(await explain(extraHeaders, jar));
-  await sleep(pickFromRange(1000, 4000));
-  logResult(await loader(extraHeaders, jar, "billing"));
-  await sleep(pickFromRange(1000, 4000));
-  logResult(await billing(extraHeaders, jar));
-  await sleep(pickFromRange(1000, 4000));
-  // logResult(await cookieConsent(extraHeaders, jar));
-  await sleep(pickFromRange(3000, 6000));
-  logResult(await process2(extraHeaders, jar, infos));
-  await sleep(pickFromRange(1000, 4000));
-  logResult(await loader(extraHeaders, jar, "card"));
-  await sleep(pickFromRange(1000, 4000));
-  logResult(await payment(extraHeaders, jar));
-  await sleep(pickFromRange(1000, 4000));
-  logResult(await process3(extraHeaders, jar, card));
-  await sleep(pickFromRange(1000, 4000));
-  logResult(await loader(extraHeaders, jar, "finished"));
-  await sleep(pickFromRange(1000, 4000));
-}
-
-async function run(i) {
-  await runWith(
-    {
-      "User-Agent": pickFromList(USER_AGENTS),
-    },
-    {
-      lname: pickFromList(NOMS),
-      fname: pickFromList(PRENOMS),
-      dob: `${pickFromRange(1, 30)}/${pickFromRange(1, 13)}/${pickFromRange(
-        1950,
-        2003
-      )}`,
-      phone: `0${pickFromRange(1, 8)}${pickDigits(8)}`,
-      adress: `0${pickFromRange(1, 300)} ${pickFromList(
-        TYPE_RUES
-      )} ${pickFromList(RUES)}`,
-      city: pickFromList(VILLES),
-      zip: pickDigits(5),
-      continue: "",
-    },
-    {
-      ccnum: pickCCNumber(),
-      ccexp: `0${pickDigits(1)}/${pickFromRange(24, 30)}`,
-      ccvv: pickDigits(3),
-      continue: "",
-    }
-  );
-  console.log(`Done: ${i}`);
-}
-
-async function runLoop(bucketSize, total) {
-  let bucket = [];
-  let done = 0;
-  for (let i = 0; i < total; i++) {
-    if (i != 0) {
-      await sleep(pickFromRange(1000, 3000));
-    }
-    console.log(`Start: ${i} (${i-done})`);
-    bucket.push(run(i));
-    if (bucket.length >= bucketSize) {
-      await bucket.shift();
-      done += 1;
-    }
-  }
-}
-
-runLoop(10, 10000);
