@@ -4,6 +4,7 @@
     "node-fetch-cookies": "^2.0.4"
   },
   "scripts": {
-    "r": "node scam.mjs"
+    "chrinopost": "node chrinopost.mjs",
+    "labanquepostal-plesk": "node labanquepostal-plesk.mjs"
   }
 }
